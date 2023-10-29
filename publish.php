@@ -101,7 +101,7 @@ foreach ($branches as $branch) {
     // Remove all files except the folder of interest
     foreach ( $branches as $_branch ) {
         if ( $branch != $_branch ) {
-            delete_recursive($branch);
+            delete_recursive($_branch);
         }
     }
 
