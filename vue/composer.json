@@ -1,0 +1,17 @@
+{
+    "name": "radiantabyss/lumi-vue-boilerplate",
+    "description": "Lumi Vue Boilerplate",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Robert Buchi",
+            "email": "robert@planetweb.ro"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "radiantabyss/lumi-vue-artisan": "^1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

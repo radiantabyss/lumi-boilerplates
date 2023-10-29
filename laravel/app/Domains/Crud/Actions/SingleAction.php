@@ -1,0 +1,22 @@
+<?php
+namespace App\Domains\Crud\Actions;
+
+use Illuminate\Routing\Controller as Action;
+use Lumi\Core\Response;
+use App\Models as Model;
+use App\Domains\Crud\Presenter;
+
+class SingleAction extends Action
+{
+    public function run($id) {
+        $item = Model\Crud::find($id);
+
+        if ( !$item ) {
+            return Response::error(\Crud::name().' not found.');
+        }
+
+        $item = Presenter::run($item);
+
+        return Response::success(compact('item'));
+    }
+}
