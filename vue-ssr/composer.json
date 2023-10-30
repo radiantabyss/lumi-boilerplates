@@ -1,0 +1,37 @@
+{
+    "name": "radiantabyss/lumi-vue-boilerplate",
+    "type": "project",
+    "description": "Lumi Vue Boilerplate",
+    "keywords": [],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Robert Buchi",
+            "email": "robert@planetweb.ro"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "radiantabyss/lumi-vue-artisan": "^1.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "ssr/app/"
+        },
+        "files": [
+            "ssr/app/Support/Helpers/BaseHelper.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
