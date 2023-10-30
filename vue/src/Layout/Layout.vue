@@ -2,7 +2,6 @@
 
 <script>
 import Header from '@/Layout/Header.vue';
-import Sidebar from '@/Layout/Sidebar.vue';
 import Footer from '@/Layout/Footer.vue';
 
 let metaInfo = {
@@ -21,7 +20,7 @@ export default {
     name: 'Layout',
     metaInfo,
     components: {
-        Header, Sidebar, Footer
+        Header, Footer
     },
     mounted() {
         setTimeout(() => {
@@ -31,14 +30,6 @@ export default {
     computed: {
         app_class() {
             let css_class = '';
-
-            if ( !Auth.user || (this.$route.meta.settings && this.$route.meta.settings.disable_header) ) {
-                css_class += ' header-disabled';
-            }
-
-            if ( !Auth.user || (this.$route.meta.settings && this.$route.meta.settings.disable_sidebar) ) {
-                css_class += ' sidebar-disabled';
-            }
 
             return css_class;
         },
@@ -55,17 +46,12 @@ export default {
     <alert/>
     <sprites/>
 
-    <template v-if="Auth.user">
-        <Header/>
-        <Sidebar />
-    </template>
+    <Header/>
 
     <transition name="fade">
         <router-view :key="$route.path" />
     </transition>
 
-    <template v-if="Auth.user">
-        <Footer/>
-    </template>
+    <Footer/>
 </div>
 </template>

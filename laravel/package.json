@@ -1,9 +1,0 @@
-{
-    "dependencies": {
-        "puppeteer": "^21.3.6"
-    },
-    "engines ": {
-        "node": "18.*",
-        "npm": "9.*"
-    }
-}

@@ -3,16 +3,12 @@ import Vue from 'vue';
 //load custom modules
 import VueMeta from 'vue-meta';
 import VModal from 'vue-js-modal';
-import CollapseTransition from '@ivanv/vue-collapse-transition';
-import VueSlider from "vue-slider-component";
-import VueSelect from "vue-select";
-import VueClipboard from 'vue-clipboard2';
 
 //load support
+import BaseHelpers from '@/Support/BaseHelpers';
 import Directives from '@/Support/Directives';
 import Gates from '@/Support/Gates';
 import Globals from '@/Support/Globals';
-import BaseHelpers from '@/Support/BaseHelpers';
 import Settings from '@/Support/Settings';
 import Str from '@/Support/Str';
 import ReactiveStorage from '@/Support/ReactiveStorage';
@@ -22,12 +18,6 @@ let self = {
         //custom modules
         Vue.use(VueMeta);
         Vue.use(VModal);
-        Vue.use(VueClipboard);
-
-        //custom components
-        Vue.component('collapse-transition', CollapseTransition);
-        Vue.component('vue-slider', VueSlider);
-        Vue.component('vue-select', VueSelect);
 
         //directives
         Vue.use(Directives);

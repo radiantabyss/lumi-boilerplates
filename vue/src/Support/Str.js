@@ -176,49 +176,6 @@ let self = {
 
         return str+'s';
     },
-
-    format_number(number) {
-        let css_class = '';
-
-        if ( !number ) {
-            number = 0;
-            css_class = 'color-lightgrey';
-        }
-        else if ( number < 0 ) {
-            css_class = 'color-red';
-        }
-
-        return `<span class="${css_class}">${parseFloat(number.toFixed(2)).toLocaleString()}</span>`;
-    },
-
-    number_to_month(number) {
-        let months = {
-            1: 'January',
-            2: 'February',
-            3: 'March',
-            4: 'April',
-            5: 'May',
-            6: 'June',
-            7: 'July',
-            8: 'August',
-            9: 'September',
-            10: 'October',
-            11: 'November',
-            12: 'December',
-        };
-
-        return months[number];
-    },
-
-    base_domain(url) {
-        try {
-    		const parsed_url = new URL(url);
-    		return parsed_url.hostname;
-    	}
-        catch (error) {
-    		return '';
-    	}
-    }
 }
 
 export default self;

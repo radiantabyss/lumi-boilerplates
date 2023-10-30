@@ -3,15 +3,10 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Lumi\Auth\Domains\Team\Commands\ExpireInvitesCommand;
-use Lumi\Auth\Domains\User\Commands\ExpireCodesCommand;
 
 class Kernel extends ConsoleKernel
 {
-    protected $commands = [
-        ExpireInvitesCommand::class,
-        ExpireCodesCommand::class,
-    ];
+    protected $commands = [];
 
     protected function commands()
     {

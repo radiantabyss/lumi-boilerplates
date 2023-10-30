@@ -13,27 +13,14 @@
         "sass": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=webpack.sass.config.js --mode development"
     },
     "dependencies": {
-        "@ivanv/vue-collapse-transition": "0.2.1",
         "@radiantabyss/lumi-vue": "^1.2.7",
         "axios": "0.18.0",
-        "chart.js": "^3.8.0",
         "core-js": "2.6.5",
-        "debounce": "1.2.0",
-        "dropzone": "5.5.1",
-        "moment": "2.24.0",
-        "moment-timezone": "^0.5.43",
         "qs": "6.7.0",
         "vue": "2.*",
-        "vue-chartjs": "^4.1.1",
-        "vue-cleave-component": "2.1.3",
-        "vue-clipboard2": "^0.3.3",
         "vue-js-modal": "^1.3.35",
         "vue-meta": "1.6.0",
-        "vue-observe-visibility": "0.4.6",
         "vue-router": "3.0.6",
-        "vue-select": "3.18.3",
-        "vue-slider-component": "^3.2.15",
-        "vue2-datepicker": "^3.11.1",
         "vuex": "3.1.0"
     },
     "devDependencies": {
@@ -85,12 +72,7 @@
             "uploads_url": "writable",
             "is_dev": "writable",
             "is_local": "writable",
-            "is_production": "writable",
-            "range": "writable",
-            "pluck": "writable",
-            "groupBy": "writable",
-            "url_with_filters": "writable",
-            "store_url_filters": "writable"
+            "is_production": "writable"
         }
     },
     "postcss": {
