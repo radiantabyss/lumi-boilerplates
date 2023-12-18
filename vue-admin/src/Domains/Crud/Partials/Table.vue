@@ -68,10 +68,10 @@ export default {
                     <tr v-for="item in items" :key="item.id">
                         <td>
                             <miniburger>
-                                <router-link :to="`${Domain.url()}/edit/${item.id}`" v-if="Gate.allows('manage-rule', item)">
+                                <router-link :to="`${Domain.url()}/edit/${item.id}`">
                                     <sprite id="edit" /> Edit
                                 </router-link>
-                                <a @click="$modal.show('confirm-delete', {id: item.id})" class="color-red" v-if="Gate.allows('manage-rule', item)">
+                                <a @click="$modal.show('confirm-delete', {id: item.id})" class="color-red">
                                     <sprite id="trash" /> Delete
                                 </a>
                             </miniburger>

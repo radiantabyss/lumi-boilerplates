@@ -11,8 +11,8 @@ export default {
     methods: {
         submit(fields) {
             Request.post('/auth/user/register', fields, true)
-            .then(data =>  {
-                Store.dispatch('Auth/login', data);
+            .then(data => {
+                this.$store.dispatch('Auth/login', data);
                 this.$router.push(process.env.VUE_APP_LOGIN_REDIRECT);
             });
         },

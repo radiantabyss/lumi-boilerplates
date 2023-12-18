@@ -1,7 +1,7 @@
 {
-    "name": "radiantabyss/lumi-vue-boilerplate",
+    "name": "radiantabyss/lumi-vue-ssr-boilerplate",
     "type": "project",
-    "description": "Lumi Vue Boilerplate",
+    "description": "Lumi Vue SSR Boilerplate",
     "keywords": [],
     "license": "proprietary",
     "authors": [
@@ -12,7 +12,13 @@
     ],
     "require": {
         "php": ">=7.1.3",
-        "radiantabyss/lumi-vue-artisan": "^1.0"
+        "jaybizzle/crawler-detect": "^1.2",
+        "laravel/framework": "10.*",
+        "radiantabyss/lumi-vue-artisan": "1.*",
+        "radiantabyss/lumi-laravel-core": "1.*"
+    },
+    "require-dev": {
+        "filp/whoops": "^2.0"
     },
     "config": {
         "optimize-autoloader": true,

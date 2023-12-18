@@ -62,6 +62,7 @@
             "Gate": "writable",
             "Item": "writable",
             "Items": "writable",
+            "Mixins": "writable",
             "ReactiveStorage": "writable",
             "Request": "writable",
             "Settings": "writable",

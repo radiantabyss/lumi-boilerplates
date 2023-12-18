@@ -5,10 +5,10 @@ import VueMeta from 'vue-meta';
 import VModal from 'vue-js-modal';
 
 //load support
-import BaseHelpers from '@/Support/BaseHelpers';
 import Directives from '@/Support/Directives';
 import Gates from '@/Support/Gates';
 import Globals from '@/Support/Globals';
+import Helpers from '@/Support/Helpers';
 import Settings from '@/Support/Settings';
 import Str from '@/Support/Str';
 import ReactiveStorage from '@/Support/ReactiveStorage';
@@ -40,9 +40,9 @@ let self = {
         }
 
         //base helpers
-        for ( let key in BaseHelpers ) {
-            window[key] = BaseHelpers[key];
-            Vue.prototype[key] = BaseHelpers[key];
+        for ( let key in Helpers ) {
+            window[key] = Helpers[key];
+            Vue.prototype[key] = Helpers[key];
         }
 
         //settings

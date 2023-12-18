@@ -5,16 +5,10 @@ $directions-short: t b l r;
 
 @each $margin-size in $margin-sizes {
     .m-#{$margin-size} {
-        margin: #{$margin-size}px;
-    }
-    .mi-#{$margin-size} {
         margin: #{$margin-size}px !important;
     }
 
     .p-#{$margin-size} {
-        padding: #{$margin-size}px;
-    }
-    .pi-#{$margin-size} {
         padding: #{$margin-size}px !important;
     }
 }

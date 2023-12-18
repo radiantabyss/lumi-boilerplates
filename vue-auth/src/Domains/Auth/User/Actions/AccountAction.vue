@@ -20,8 +20,8 @@ export default {
         submit(e) {
             let fields = {
                 _event: e,
+                name: this.name,
                 meta: {
-                    name: this.name,
                     profile_image_path: this.profile_image_path,
                 }
             };

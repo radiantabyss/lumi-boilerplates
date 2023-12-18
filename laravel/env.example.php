@@ -18,7 +18,7 @@ $env = [
     'QUEUE_CONNECTION' => 'sync',
 
     'JWT_INPUT' => 'jwt_token',
-    'JWT_SECRET' => '',
+    'JWT_SECRET' => 'gesgfaw',
 
     'FRONT_URL' => 'http://lumi-vue-boilerplate',
     'BACK_URL' => 'http://lumi-laravel-boilerplate',
