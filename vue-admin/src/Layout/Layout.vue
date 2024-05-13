@@ -20,14 +20,7 @@ let metaInfo = {
 export default {
     name: 'Layout',
     metaInfo,
-    components: {
-        Header, Sidebar, Footer
-    },
-    mounted() {
-        setTimeout(() => {
-            document.body.classList.add("default-transition");
-        }, 100);
-    },
+    components: { Header, Sidebar, Footer },
     computed: {
         app_class() {
             let css_class = '';
@@ -46,6 +39,10 @@ export default {
         in_production() {
             return process.env.VUE_APP_ENV == 'production';
         },
+    },
+    mounted() {
+        document.body.classList.add('default-transition');
+        document.body.classList.add(`env--${process.env.VUE_APP_ENV}`);
     },
 }
 </script>

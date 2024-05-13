@@ -4,6 +4,9 @@
 
 .daterangepicker__value {
     @extend .input;
+}
+
+a.daterangepicker__value {
     display: block;
     width: 220px;
     cursor: pointer;

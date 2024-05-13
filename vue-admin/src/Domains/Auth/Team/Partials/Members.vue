@@ -23,7 +23,7 @@ export default {
             Request.post(`/auth/team/change-role`, {
                 id,
                 role: e.target.value,
-                team_id: this.$route.params.id,
+                team_id: this.team.id,
             }, true);
         },
 
@@ -54,7 +54,7 @@ export default {
         },
     },
     mounted() {
-        Request.get(`/auth/team/list-members/${this.$route.params.id}`)
+        Request.get(`/auth/team/list-members/${this.team.id}`)
         .then(data => {
             this.items = data.items;
             this.total = data.total;

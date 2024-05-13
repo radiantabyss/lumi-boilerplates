@@ -12,7 +12,7 @@ class SingleAction extends Action
         $item = Model\Crud::find($id);
 
         if ( !$item ) {
-            return Response::error(\Crud::name().' not found.');
+            return Response::error(\Domain::name().' not found.');
         }
 
         $item = Presenter::run($item);

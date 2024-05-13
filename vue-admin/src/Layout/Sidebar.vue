@@ -70,6 +70,39 @@ export default {
                 }, 50);
             }
         },
+
+        showSubmenu(i) {
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => {
+                for ( let link of this.$refs.links ) {
+                    if ( link.$el ) {
+                        link.$el.classList.remove('hover');
+                    }
+                    else {
+                        link.classList.remove('hover');
+                    }
+                }
+
+                this.$refs.links[i].classList.add('hover');
+            }, 150);
+        },
+
+        hideSubmenu(i) {
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => {
+                this.$refs.links[i].classList.remove('hover');
+            }, 150);
+        },
+
+        getLinkClass(link) {
+            let css_class = '';
+
+            if ( this.isSelected(link) ) {
+                css_class += 'sidebar__link--selected active';
+            }
+
+            return css_class;
+        },
     },
 }
 </script>
@@ -81,7 +114,10 @@ export default {
     <template v-for="(link, i) in computed_links">
         <div :key="i"
             class="sidebar__link sidebar__link--with-children"
-            :class="isSelected(link) ? 'sidebar__link--selected active' : ''"
+            :class="getLinkClass(link)"
+            @mouseover="showSubmenu(i)"
+            @mouseout="hideSubmenu(i)"
+            ref="links"
              v-if="link.children && link.children.length"
         >
             <router-link :to="link.url">
@@ -99,13 +135,15 @@ export default {
 
         <router-link :key="i" :to="link.url"
             class="sidebar__link"
-            :class="link.url == $route.path ? 'active' : ''"
+            :class="link.url.replace(/\?.*$/, '') == $route.path ? 'active' : ''"
+            ref="links"
              v-else-if="link.url"
         >
             <sprite :id="link.icon" v-if="link.icon" /> {{ link.name }}
         </router-link>
 
         <div class="sidebar__label" :key="i"
+            ref="links"
             v-else
         >
             <sprite :id="link.icon" v-if="link.icon" /> {{ link.name }}

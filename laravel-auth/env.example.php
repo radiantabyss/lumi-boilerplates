@@ -32,6 +32,8 @@ $env = [
     'MAILGUN_DOMAIN' => '',
     'MAILGUN_SECRET' => '',
     'MAILGUN_ENDPOINT' => '',
+
+    'MONITOR_LOGS_EMAIL' => '',
 ];
 
 foreach ( $env as $key => $value ) {

@@ -5,7 +5,6 @@ import VueMeta from 'vue-meta';
 import VModal from 'vue-js-modal';
 
 //load support
-import Directives from '@/Support/Directives';
 import Gates from '@/Support/Gates';
 import Globals from '@/Support/Globals';
 import Helpers from '@/Support/Helpers';
@@ -19,19 +18,12 @@ let self = {
         Vue.use(VueMeta);
         Vue.use(VModal);
 
-        //directives
-        Vue.use(Directives);
-
         //str helpers
         window.Str = Str;
         Vue.prototype.Str = Str;
-        Vue.use({
-            install(Vue) {
-                for ( let key in Str ) {
-                    Vue.filter(key, Str[key]);
-                }
-            }
-        });
+        for ( let key in Str ) {
+            Vue.filter(key, Str[key]);
+        }
 
         //globals
         for ( let key in Globals ) {

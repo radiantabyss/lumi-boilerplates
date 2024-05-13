@@ -9,10 +9,9 @@ import VueSelect from "vue-select";
 import VueClipboard from 'vue-clipboard2';
 
 //load support
-import BaseHelpers from '@/Support/BaseHelpers';
-import Directives from '@/Support/Directives';
 import Gates from '@/Support/Gates';
 import Globals from '@/Support/Globals';
+import Helpers from '@/Support/Helpers';
 import Settings from '@/Support/Settings';
 import Str from '@/Support/Str';
 import ReactiveStorage from '@/Support/ReactiveStorage';
@@ -29,19 +28,12 @@ let self = {
         Vue.component('vue-slider', VueSlider);
         Vue.component('vue-select', VueSelect);
 
-        //directives
-        Vue.use(Directives);
-
         //str helpers
         window.Str = Str;
         Vue.prototype.Str = Str;
-        Vue.use({
-            install(Vue) {
-                for ( let key in Str ) {
-                    Vue.filter(key, Str[key]);
-                }
-            }
-        });
+        for ( let key in Str ) {
+            Vue.filter(key, Str[key]);
+        }
 
         //globals
         for ( let key in Globals ) {

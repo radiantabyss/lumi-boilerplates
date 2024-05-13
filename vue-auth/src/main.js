@@ -2,20 +2,20 @@
 import Vue from 'vue';
 
 //register lumi services
-import lumiBootstrap from '@lumi/bootstrap';
-lumiBootstrap.run();
+import LumiBootstrap from '@lumi/Bootstrap';
+LumiBootstrap.run();
 
 //register services
-import bootstrap from '@/bootstrap';
-bootstrap.run();
+import Bootstrap from '@/Bootstrap';
+Bootstrap.run();
 
 //import lumi router and store
-import Router from '@lumi/routing/Router';
+import Router from '@lumi/Routing/Router';
 import Store from '@lumi/Store';
 
 //other settings
 Vue.config.productionTip = false;
-Vue.config.ignoredElements = [];
+Vue.config.ignoredElements = ['t'];
 
 //import layout
 import Layout from '@/Layout/Layout.vue';

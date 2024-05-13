@@ -19,4 +19,9 @@
     @media (prefers-color-scheme: $mode) {
         @content;
     }
+
+    .dark-mode &,
+    .env--local & {
+        @content;
+    }
 }

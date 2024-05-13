@@ -51,75 +51,12 @@ export default {
                 <image-upload v-model="fields.meta.image_path" path="/auth/team/upload-image" />
             </div>
         </div>
-
-        <div class="panel col-50">
-            <div class="subtitle">Facebook Settings</div>
-            <div class="grid">
-                <div class="row col-50 col-m100">
-                    <label>App ID</label>
-                    <input type="text" class="input" v-model="fields.meta.facebook_app_id" />
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>App Secret</label>
-                    <input type="text" class="input" v-model="fields.meta.facebook_app_secret" />
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>App Token</label>
-                    <input type="text" class="input" v-model="fields.meta.facebook_app_token" />
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>API Version</label>
-                    <input type="text" class="input" v-model="fields.meta.facebook_api_version" />
-                </div>
-            </div>
-        </div>
-
-        <div class="panel col-50">
-            <div class="subtitle">TikTok Settings</div>
-            <div class="grid">
-                <div class="row col-50 col-m100">
-                    <label>App ID</label>
-                    <input type="text" class="input" v-model="fields.meta.tiktok_app_id" />
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>App Secret</label>
-                    <input type="text" class="input" v-model="fields.meta.tiktok_app_secret" />
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>API Version</label>
-                    <input type="text" class="input" v-model="fields.meta.tiktok_api_version" />
-                </div>
-            </div>
-        </div>
-
-        <div class="panel col-50">
-            <div class="subtitle">Tracker Settings</div>
-            <div class="grid">
-                <div class="row col-50 col-m100">
-                    <label>Tracker</label>
-                    <select class="input" v-model="fields.meta.tracker">
-                        <option :value="tracker" v-for="tracker in Settings.trackers" :key="tracker">
-                            {{ tracker | ucwords }}
-                        </option>
-                    </select>
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>Tracker URL</label>
-                    <input type="text" class="input" v-model="fields.meta.tracker_url" />
-                </div>
-                <div class="row col-50 col-m100">
-                    <label>Tracker Key</label>
-                    <input type="text" class="input" v-model="fields.meta.tracker_key" />
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="grid">
         <div class="panel panel--rows col-50">
             <div class="row row--submit">
-                <button type="submit" @click.prevent="submit" class="btn btn--medium">Save</button>
-                <router-link to="/auth/account"><sprite id="cancel" /> Cancel</router-link>
+                <button type="submit" @click.prevent="submit" class="btn btn--medium">Save Changes</button>
             </div>
         </div>
     </div>

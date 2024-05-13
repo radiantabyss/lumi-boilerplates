@@ -4,9 +4,7 @@
 /lumi
 /dist
 
-# local env files
-.env.local
-.env.*.local
+.env
 
 # Log files
 npm-debug.log*
@@ -26,13 +24,14 @@ nbproject
 public/.htaccess
 public/*
 release/*
-src/assets/images/sprite.png
-src/assets/images/sprite@2x.png
-src/assets/sass/_sprites.scss
+static/images/sprite.png
+static/images/sprite@2x.png
+src/Sass/_sprites.scss
+src/Sass/app.scss
 index.html
 
 .sass-cache
 grunt
 
 ssr-env.php
-src/Domains/Common/Components/SpritesComponent.vue
+src/Components/SpritesComponent.vue

@@ -61,7 +61,7 @@
          color: $white;
 
          @include theme() {
-             background: $primary2--dark;
+             background: $primary3--dark;
          }
      }
  }
@@ -72,7 +72,7 @@
      font-weight: bold;
 
      @include theme() {
-         background: $primary2--dark;
+         background: $primary3--dark;
      }
  }
 

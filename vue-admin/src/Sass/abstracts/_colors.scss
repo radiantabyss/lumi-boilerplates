@@ -4,6 +4,7 @@ $colors: (
 
     "primary": $primary,
     "secondary": $secondary,
+    "red": $red,
 );
 
 $dark_colors: (
@@ -13,6 +14,7 @@ $dark_colors: (
 
     "primary": $primary--dark,
     "secondary": $secondary--dark,
+    "red": $red,
 );
 
 @each $key, $color in $colors {

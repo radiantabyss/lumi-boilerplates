@@ -4,6 +4,9 @@
 
 .datepicker__value {
     @extend .input;
+}
+
+.datepicker__value {
     display: block;
     width: 220px;
     cursor: pointer;
@@ -127,7 +130,7 @@
         background: $primary;
 
         @include theme() {
-            background: $primary2--dark;
+            background: $primary3--dark;
         }
     }
 
@@ -158,7 +161,7 @@
             color: $primary;
 
             @include theme() {
-                color: $primary2--dark;
+                color: $primary3--dark;
             }
         }
     }

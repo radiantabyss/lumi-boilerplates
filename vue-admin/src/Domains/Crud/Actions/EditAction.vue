@@ -12,9 +12,13 @@ export default {
         submit(fields) {
             Request.post(Domain.url(true), fields, true)
             .then(() => {
-                this.$router.push(Domain.url());
+                this.redirect();
             });
-        }
+        },
+
+        redirect() {
+            this.$router.push(StorageHandler.getItem('_previous_route') || `${Domain.url()}/single/${this.$route.params.id}`);
+        },
     },
     mounted() {
         Request.get(`${Domain.url()}/edit/${this.$route.params.id}`)
@@ -41,6 +45,6 @@ export default {
         </div>
     </div>
 
-    <Form :item="item" @submit="submit" v-if="item !== false" />
+    <Form :item="item" @submit="submit" @cancel="redirect" v-if="item !== false" />
 </div>
 </template>

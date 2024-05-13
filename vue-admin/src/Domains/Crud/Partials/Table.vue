@@ -71,7 +71,7 @@ export default {
                                 <router-link :to="`${Domain.url()}/edit/${item.id}`">
                                     <sprite id="edit" /> Edit
                                 </router-link>
-                                <a @click="$modal.show('confirm-delete', {id: item.id})" class="color-red">
+                                <a @click="$modal.show(`confirm-delete-${item_name}`, {id: item.id})" class="color-red">
                                     <sprite id="trash" /> Delete
                                 </a>
                             </miniburger>

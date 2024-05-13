@@ -5,16 +5,10 @@ $directions-short: t b l r;
 
 @each $margin-size in $margin-sizes {
     .m-#{$margin-size} {
-        margin: #{$margin-size}px;
-    }
-    .mi-#{$margin-size} {
         margin: #{$margin-size}px !important;
     }
 
     .p-#{$margin-size} {
-        padding: #{$margin-size}px;
-    }
-    .pi-#{$margin-size} {
         padding: #{$margin-size}px !important;
     }
 }
@@ -31,41 +25,21 @@ $directions-short: t b l r;
     }
 
     .mx-#{$margin-size} {
-        margin-left: #{$margin-size}px;
-        margin-right: #{$margin-size}px;
-    }
-
-    .mx-#{$margin-size}-i {
         margin-left: #{$margin-size}px !important;
         margin-right: #{$margin-size}px !important;
     }
 
     .px-#{$margin-size} {
-        padding-left: #{$margin-size}px;
-        padding-right: #{$margin-size}px;
-    }
-
-    .px-#{$margin-size}-i {
         padding-left: #{$margin-size}px !important;
         padding-right: #{$margin-size}px !important;
     }
 
     .my-#{$margin-size} {
-        margin-top: #{$margin-size}px;
-        margin-bottom: #{$margin-size}px;
-    }
-
-    .my-#{$margin-size}-i {
         margin-top: #{$margin-size}px !important;
         margin-bottom: #{$margin-size}px !important;
     }
 
     .py-#{$margin-size} {
-        padding-top: #{$margin-size}px;
-        padding-bottom: #{$margin-size}px;
-    }
-
-    .py-#{$margin-size}-i {
         padding-top: #{$margin-size}px !important;
         padding-bottom: #{$margin-size}px !important;
     }

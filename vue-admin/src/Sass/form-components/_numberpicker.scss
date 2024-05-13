@@ -1,6 +1,6 @@
 .numberpicker {
     position: relative;
-    
+
     ul {
         display: none;
         flex-wrap: wrap;
@@ -132,14 +132,24 @@
     }
 }
 
-
-.numberpicker--month {
+.numberpicker--year {
     ul {
-        width: 240px;
+        width: 210px;
     }
 
     li {
-        width: 80px;
-        height: 45px;
+        width: 52px;
+        height: 32px;
+    }
+}
+
+.numberpicker--month {
+    ul {
+        width: 278px;
+    }
+
+    li {
+        width: 92px;
+        height: 38px;
     }
 }

@@ -44,7 +44,7 @@ export default {
 <form ref="form">
     <div class="panel w-50">
         <div class="row">
-            <label for="text">Name</label>
+            <label>Name</label>
             <input type="text" class="input" v-model="fields.name" />
         </div>
     </div>
@@ -52,7 +52,7 @@ export default {
     <div class="panel w-50">
         <div class="row row--submit">
             <button type="submit" @click.prevent="submit" class="btn btn--medium">Save</button>
-            <router-link :to="`${Domain.url()}`"><sprite id="cancel" /> Cancel</router-link>
+            <a @click="$emit('cancel')"><sprite id="cancel" /> Cancel</a>
         </div>
     </div>
 </form>
