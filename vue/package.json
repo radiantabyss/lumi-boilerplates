@@ -3,14 +3,9 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "serve": "php artisan sass && php artisan static && vue-cli-service serve",
-        "watch": "vue-cli-service serve",
+        "serve": "php artisan sass && php artisan sprite && php artisan static && vue-cli-service serve",
         "build": "vue-cli-service build",
-        "build-staging": "vue-cli-service build --mode staging",
-        "build-master": "vue-cli-service build --mode master",
-        "lint": "vue-cli-service lint",
-        "sprite": "echo \"no more png sprites\"",
-        "sass": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=webpack.sass.config.js --mode development"
+        "sprite": "echo \"no more png sprites\""
     },
     "dependencies": {
         "@radiantabyss/lumi-vue": "^1.2.7",
@@ -57,6 +52,7 @@
         "globals": {
             "Alert": "writable",
             "Auth": "writable",
+            "Confirm": "writable",
             "Cookie": "writable",
             "Domain": "writable",
             "Gate": "writable",

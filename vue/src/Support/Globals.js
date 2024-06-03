@@ -1,5 +1,3 @@
-import Store from '@lumi/Store';
-
 export default {
     app_url: process.env.VUE_APP_URL,
     back_url: process.env.VUE_APP_BACK_URL,

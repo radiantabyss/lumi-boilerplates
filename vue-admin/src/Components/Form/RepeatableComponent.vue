@@ -79,8 +79,6 @@ export default {
     mounted() {
         //hack for draggable bug
         for ( let i = 0; i < this.items.length; i++ ) {
-            let item = this.items[i];
-
             for ( let input_name in this.inputs ) {
                 if ( this.inputs[input_name].type != 'select' ) {
                     continue;

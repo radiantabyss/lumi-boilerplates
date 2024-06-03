@@ -54,8 +54,6 @@ export default {
 
         url() {
             let query = {...this.$route.query};
-            let direction = 'desc';
-
             let order_by = [];
             let order = [];
 
