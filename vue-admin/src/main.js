@@ -15,7 +15,7 @@ import Store from '@lumi/Store';
 
 //other settings
 Vue.config.productionTip = false;
-Vue.config.ignoredElements = ['t'];
+Vue.config.ignoredElements = ['l', 'z'];
 
 //import layout
 import Layout from '@/Layout/Layout.vue';

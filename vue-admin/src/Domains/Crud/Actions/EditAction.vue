@@ -9,22 +9,18 @@ export default {
         }
     },
     methods: {
-        submit(fields) {
-            Request.post(Domain.url(true), fields, true)
-            .then(() => {
-                this.redirect();
-            });
+        async submit(fields) {
+            await Request.post(Domain.url(true), fields, true);
+            this.redirect();
         },
 
         redirect() {
             this.$router.push(StorageHandler.getItem('_previous_route') || `${Domain.url()}/single/${this.$route.params.id}`);
         },
     },
-    mounted() {
-        Request.get(`${Domain.url()}/edit/${this.$route.params.id}`)
-        .then(data => {
-            this.item = data.item;
-        });
+    async mounted() {
+        let data = await Request.get(`${Domain.url()}/edit/${this.$route.params.id}`);
+        this.item = data.item;
     },
 }
 </script>

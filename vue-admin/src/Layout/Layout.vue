@@ -49,20 +49,24 @@ export default {
 
 <template>
 <div id="app" :class="`${app_class}`">
-    <alert/>
-    <sprites/>
+    <alert />
+    <confirm />
 
     <template v-if="Auth.user">
-        <Header/>
+        <Header />
         <Sidebar />
+
+        <transition name="fade">
+            <div class="action-content">
+                <router-view :key="$route.path" />
+            </div>
+        </transition>
+
+        <Footer />
     </template>
 
-    <transition name="fade">
-        <router-view :key="$route.path" />
-    </transition>
-
-    <template v-if="Auth.user">
-        <Footer/>
+    <template v-else>
+        <router-view />
     </template>
 </div>
 </template>

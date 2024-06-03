@@ -21,22 +21,23 @@ export default {
         }
     },
     methods: {
-        mount() {
+        async mount() {
             this.loading = true;
-            Request.get(this.url, this.params)
-            .then(data =>  {
-                this.items = data.items;
-                this.total = data.total;
-                this.pages = data.pages;
-                this.loading = false;
-            });
+            let data = await Request.get(this.url, this.params);
+
+            this.items = data.items;
+            this.total = data.total;
+            this.pages = data.pages;
+            this.loading = false;
         },
 
-        deleteItem(e) {
-            Request.get(`${this.url}/delete/${e.id}`)
-            .then(() => {
-                this.items = Items.delete(this.items, e.id);
+        async deleteItem(id) {
+            await Confirm({
+                question: `Are you sure you want to delete this ${item_name}?`,
             });
+
+            await Request.get(`${Domain.url()}/delete/${id}`);
+            this.items = Items.delete(this.items, id);
         },
     },
     mounted() {
@@ -71,7 +72,7 @@ export default {
                                 <router-link :to="`${Domain.url()}/edit/${item.id}`">
                                     <sprite id="edit" /> Edit
                                 </router-link>
-                                <a @click="$modal.show(`confirm-delete-${item_name}`, {id: item.id})" class="color-red">
+                                <a @click="deleteItem(item.id)" class="color-red">
                                     <sprite id="trash" /> Delete
                                 </a>
                             </miniburger>
@@ -86,7 +87,5 @@ export default {
             No {{ item_name }} found.
         </template>
     </template>
-
-    <confirm-modal :type="`delete-${item_name}`" @confirm="deleteItem" :question="`Are you sure you want to delete this ${item_name}?`" />
 </div>
 </template>

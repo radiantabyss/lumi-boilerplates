@@ -38,7 +38,7 @@ export default {
 
     <div class="modal__content">
         <div class="subtitle text-center">
-            Search {{ type | to_words }}
+            Search {{ type | ucwords }}
         </div>
 
         <input type="text" :placeholder="`Search ${Str.plural(type)} by ID or Name...`" />

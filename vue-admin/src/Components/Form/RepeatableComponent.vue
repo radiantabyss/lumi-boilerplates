@@ -104,7 +104,7 @@ export default {
 <div>
     <div class="grid" v-if="show_labels && items && items.length">
         <div v-for="(input, input_name) in inputs" :key="input_name">
-            <div :class="input.input_css_class ? input.input_css_class : ''">{{ input_name | to_words }}</div>
+            <div :class="input.input_css_class ? input.input_css_class : ''">{{ input_name | ucwords }}</div>
         </div>
         <div></div>
     </div>
@@ -131,9 +131,9 @@ export default {
                         :ref="`select_${i}`"
                     >
                         <template v-if="input.options_are_grouped">
-                            <optgroup v-for="(options, group) in input.options" :key="group" :label="$options.filters.to_words(group)">
+                            <optgroup v-for="(options, group) in input.options" :key="group" :label="Str.ucwords(group)">
                                 <option v-for="(text, value) in options" :key="value" :value="input.options_have_text ? value : text">
-                                    {{ input.options_have_text ? text : $options.filters.to_words(text) }}
+                                    {{ input.options_have_text ? text : Str.ucwords(text) }}
                                 </option>
                             </optgroup>
                         </template>
@@ -142,7 +142,7 @@ export default {
                                 :key="value"
                                 :value="input.options_have_text ? value : text"
                             >
-                                {{ input.options_have_text ? text : $options.filters.to_words(text) }}
+                                {{ input.options_have_text ? text : Str.ucwords(text) }}
                             </option>
                         </template>
                     </select>

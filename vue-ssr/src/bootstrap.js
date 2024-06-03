@@ -19,6 +19,7 @@ let self = {
         Vue.use(VModal);
 
         //str helpers
+        Str = {...window.Str, ...Str};
         window.Str = Str;
         Vue.prototype.Str = Str;
         for ( let key in Str ) {

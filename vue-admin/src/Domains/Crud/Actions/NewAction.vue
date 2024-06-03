@@ -9,23 +9,19 @@ export default {
         }
     },
     methods: {
-        submit(fields) {
-            Request.post(Domain.url(true), fields, true)
-            .then(() => {
-                this.redirect();
-            });
+        async submit(fields) {
+            await Request.post(Domain.url(true), fields, true);
+            this.redirect();
         },
 
         redirect() {
             this.$router.push(StorageHandler.getItem('_previous_route') || Domain.url());
         },
     },
-    mounted() {
+    async mounted() {
         if ( this.$route.params.id ) {
-            Request.get(`${Domain.url()}/edit/${this.$route.params.id}`)
-            .then(data => {
-                this.item = data.item;
-            });
+            let data = await Request.get(`${Domain.url()}/edit/${this.$route.params.id}`);
+            this.item = data.item;
         }
         else {
             this.item = null;

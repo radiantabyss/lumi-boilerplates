@@ -5,3 +5,9 @@
     padding: 0 20px;
     margin: 0 auto;
 }
+
+.action-content {
+    @include breakpoint('mobile') {
+        padding: 0 15px;
+    }
+}

@@ -3,7 +3,12 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 //load env config
-require_once __DIR__ . '/../env.php';
+$env = require_once __DIR__ . '/../env.php';
+
+foreach ( $env as $key => $value ) {
+    $_ENV[$key] = $value;
+    putenv($key.'='.$value);
+}
 
 /**
  * Laravel - A PHP Framework For Web Artisans

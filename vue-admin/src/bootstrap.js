@@ -29,6 +29,7 @@ let self = {
         Vue.component('vue-select', VueSelect);
 
         //str helpers
+        Str = {...window.Str, ...Str};
         window.Str = Str;
         Vue.prototype.Str = Str;
         for ( let key in Str ) {

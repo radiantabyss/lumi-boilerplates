@@ -11,7 +11,7 @@ let self = {
     },
 
     url_with_filters(url, default_filters = {}) {
-        return trim(url + '?' + qs.stringify(ReactiveStorage.getItem(`${url}__filters`) || default_filters), '?');
+        return Str.trim(url + (url.match(/\?/) ? '&' : '?') + qs.stringify(ReactiveStorage.getItem(`${store_key || url}__filters`) || default_filters), '?');
     },
 
     store_url_filters(url, filters) {

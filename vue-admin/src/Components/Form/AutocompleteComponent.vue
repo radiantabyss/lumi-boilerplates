@@ -14,7 +14,8 @@ export default {
         },
         domain: {
             type: String,
-            required: true,
+            required: false,
+            default: '',
         },
         url: {
             type: String,
@@ -84,7 +85,7 @@ export default {
         }
     },
     methods: {
-        search(is_autosearch = false) {
+        async search(is_autosearch = false) {
             if ( !is_autosearch && this.term.length < 2 ) {
                 this.results = false;
                 this.results_visible = false;
@@ -106,15 +107,13 @@ export default {
                 };
             }
 
-            Request.get(this.url ? this.url : `/${this.domain}/search`, params)
-            .then(data => {
-                this.results = data.items;
-                this.results_visible = is_autosearch ? false : true;
+            let data = await Request.get(this.url ? this.url : `/${this.domain}/search`, params);
+            this.results = data.items;
+            this.results_visible = is_autosearch ? false : true;
 
-                if ( is_autosearch && data.items.length == 1 ) {
-                    this.select(data.items[0]);
-                }
-            });
+            if ( is_autosearch && data.items.length == 1 ) {
+                this.select(data.items[0]);
+            }
         },
 
         select(result) {
@@ -141,31 +140,24 @@ export default {
             this.results_visible = false;
         },
 
-        setTerm() {
-            return new Promise(resolve => {
-                if ( this.value == '' || this.text ) {
-                    this.term = '';
-                    return resolve();
-                }
+        async setTerm() {
+            if ( this.value == '' || this.text ) {
+                this.term = '';
+                return;
+            }
 
-                Request.get(this.url ? this.url : `/${this.domain}/search`, { id: this.value, limit: 1 })
-                .then(data => {
-                    if ( data.items.length ) {
-                        this.term = data.items[0].text;
-                    }
-
-                    resolve();
-                });
-            });
+            let data = await Request.get(this.url ? this.url : `/${this.domain}/search`, { id: this.value, limit: 1 });
+            if ( data.items.length ) {
+                this.term = data.items[0].text;
+            }
         },
     },
-    mounted() {
-        this.setTerm()
-        .then(() => {
-            if ( this.term == '' && this.autosearch ) {
-                this.search(true);
-            }
-        });
+    async mounted() {
+        await this.setTerm();
+
+        if ( this.term == '' && this.autosearch ) {
+            this.search(true);
+        }
 
         for ( let css_class of this.$el.classList ) {
             if ( ['autocomplete', 'autocomplete--inline'].includes(css_class) ) {
@@ -176,8 +168,6 @@ export default {
         }
 
         this.$el.className = `autocomplete ${this.css_class}`;
-
-        this.setTerm();
     },
     watch: {
         value() {

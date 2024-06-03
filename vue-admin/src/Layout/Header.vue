@@ -20,34 +20,29 @@ export default {
             }
         },
 
-        logout() {
-            this.$store.dispatch('Auth/logout')
-            .then(() => {
-                this.$router.push('/login');
-            });
+        async logout() {
+            await this.$store.dispatch('Auth/logout');
+            this.$router.push('/login');
         },
 
-        switchTeam(team_id) {
-            Request.post(`/auth/team/switch/${team_id}`)
-            .then(data => {
-                this.$store.dispatch('Auth/login', {
-                    item: data.user,
-                    jwt_token: data.jwt_token,
-                });
+        async switchTeam(team_id) {
+            let data = await Request.post(`/auth/team/switch/${team_id}`);
 
-                //close menu
-                this.toggleMenu();
-
-                //redirect to dashboard
-                this.$router.push('/dashboard');
+            this.$store.dispatch('Auth/login', {
+                item: data.user,
+                jwt_token: data.jwt_token,
             });
+
+            //close menu
+            this.toggleMenu();
+
+            //redirect to dashboard
+            this.$router.push('/dashboard');
         },
     },
-    mounted() {
-        Request.get('/auth/team')
-        .then(data => {
-            this.$store.commit('Auth/SET_TEAMS', data.items);
-        });
+    async mounted() {
+        let data = await Request.get('/auth/team');
+        this.$store.commit('Auth/SET_TEAMS', data.items);
     },
     watch: {
         $route() {

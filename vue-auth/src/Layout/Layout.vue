@@ -43,15 +43,15 @@ export default {
 
 <template>
 <div id="app" :class="`${app_class}`">
-    <alert/>
-    <sprites/>
+    <alert />
+    <confirm />
 
-    <Header/>
+    <Header />
 
     <transition name="fade">
         <router-view :key="$route.path" />
     </transition>
 
-    <Footer/>
+    <Footer />
 </div>
 </template>

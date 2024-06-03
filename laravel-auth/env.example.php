@@ -1,5 +1,5 @@
 <?php
-$env = [
+return [
     'APP_NAME' => 'Lumi Laravel Boilerplate',
     'APP_ENV' => 'local',
     'APP_KEY' => '',
@@ -35,8 +35,3 @@ $env = [
 
     'MONITOR_LOGS_EMAIL' => '',
 ];
-
-foreach ( $env as $key => $value ) {
-    $_ENV[$key] = $value;
-    putenv($key.'='.$value);
-}

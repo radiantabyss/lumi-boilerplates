@@ -2,7 +2,12 @@
 <?php
 
 //load env config
-require_once __DIR__ . '/env.php';
+$env = require_once __DIR__ . '/env.php';
+
+foreach ( $env as $key => $value ) {
+    $_ENV[$key] = $value;
+    putenv($key.'='.$value);
+}
 
 define('LARAVEL_START', microtime(true));
 

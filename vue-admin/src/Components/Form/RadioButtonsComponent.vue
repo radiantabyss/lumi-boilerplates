@@ -44,14 +44,14 @@ export default {
 </script>
 
 <template>
-<div class="input-radio-buttons">
+<div class="radio-buttons">
     <a class="btn btn--small btn--auto"
         v-for="(text, value) in options"
         :key="value"
         :class="selected === (is_object ? value : text) ? '' : 'btn--outline'"
         @click="select(is_object ? value : text)"
     >
-        {{ is_object ? text : $options.filters.to_words(text) }}
+        {{ is_object ? text : Str.ucwords(text) }}
     </a>
 </div>
 </template>
